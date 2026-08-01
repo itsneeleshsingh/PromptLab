@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PromptLab — Craft Better Prompts</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <div class="logo" id="logoHome" style="cursor: pointer;">
+                <img src="images/logo.png" alt="PromptLab logo" onerror="this.src='https://api.iconify.design/solar:code-square-bold-duotone.svg?color=%23003838'">
+                <h2>PromptLab</h2>
+            </div>
+            <div class="sectionLink">
+                <button id="featureLink">Features</button>
+                <button id="templateLink">Templates</button>
+            </div>
+        </div>
+        <div class="headerAction">
+            <button id="launchApp">Launch App</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- LANDING VIEW -->
+        <div id="landing-view" class="landing-container">
+            <div class="hero">
+                <div class="badge">
+                    <i class="fa-solid fa-meteor"></i>
+                    <p>Create Prompts Faster</p>
+                </div>
+                <h1>Turn rough ideas into professional AI prompts</h1>
+                <p>Stop writing vague prompts. Optimize, score, and adapt your prompts instantly for ChatGPT, Claude, Midjourney, and more.</p>
+                <button id="startOptBtn">Start Optimizing</button>
+            </div>
+
+            <!-- Features Section -->
+            <section id="features-section" class="features-section">
+                <h2>Why PromptLab?</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <i class="fa-solid fa-bolt"></i>
+                        <h3>Instant Optimization</h3>
+                        <p>Transform casual thoughts into production-ready prompts using advanced AI templates.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fa-solid fa-bullseye"></i>
+                        <h3>Platform Specific</h3>
+                        <p>Tailored prompt structures optimized for ChatGPT, Claude, Midjourney, Flux, and more.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <h3>Real-time Scoring</h3>
+                        <p>Analyze your prompt clarity, specificity, and structure with instant quality grades.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- APP WORKSPACE VIEW (Hidden by default) -->
+        <div id="app-view" class="app-container hidden">
+            <div class="app-layout">
+                <!-- Left Input Panel -->
+                <div class="panel input-panel">
+                    <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Prompt Workspace</h3>
+                    
+                    <div class="form-group">
+                        <label>Describe your prompt</label>
+                        <textarea id="promptInput" placeholder="Describe what you want... e.g., Create a YouTube thumbnail prompt for an electric car video"></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>AI Platform</label>
+                            <select id="platformSelect">
+                                <option value="chatgpt">ChatGPT</option>
+                                <option value="claude">Claude</option>
+                                <option value="gemini">Gemini</option>
+                                <option value="midjourney">Midjourney</option>
+                                <option value="flux">Flux</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select id="categorySelect">
+                                <option value="writing">Writing</option>
+                                <option value="coding">Coding</option>
+                                <option value="image">Image Generation</option>
+                                <option value="marketing">Marketing</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Tone</label>
+                            <select id="toneSelect">
+                                <option value="professional">Professional</option>
+                                <option value="creative">Creative</option>
+                                <option value="technical">Technical</option>
+                                <option value="minimal">Minimal</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Output Length</label>
+                            <select id="lengthSelect">
+                                <option value="medium">Medium</option>
+                                <option value="short">Short</option>
+                                <option value="detailed">Detailed</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button id="optimizeBtn"><i class="fa-solid fa-wand-magic"></i> Optimize Prompt</button>
+                </div>
+
+                <!-- Right Output Panel -->
+                <div class="panel output-panel">
+                    <h3><i class="fa-solid fa-square-poll-vertical"></i> Optimization Results</h3>
+                    
+                    <div class="score-card">
+                        <div class="score-info">
+                            <span>Prompt Quality Score</span>
+                            <h2>72 / 100</h2>
+                        </div>
+                        <div class="score-bars">
+                            <div class="bar-item"><span>Clarity</span> ⭐⭐⭐⭐☆</div>
+                            <div class="bar-item"><span>Specificity</span> ⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="output-header">
+                            <label>Optimized Output</label>
+                            <button id="copyBtn"><i class="fa-regular fa-copy"></i> Copy</button>
+                        </div>
+                        <textarea id="outputResult" readonly placeholder="Your optimized prompt will appear here..."></textarea>
+                    </div>
+
+                    <div class="breakdown-box">
+                        <h4><i class="fa-solid fa-circle-check"></i> Why this prompt is better:</h4>
+                        <ul>
+                            <li>Added specific role and contextual constraints.</li>
+                            <li>Structured output format specified for optimal model adherence.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 PromptLab. Built with Vanilla JS & CSS.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
